@@ -1,0 +1,5 @@
+{
+  "pico-sdk": {"url": "https://github.com/raspberrypi/pico-sdk.git", "commit": "98a542c1a62fb549ffb5d66a3e5892b06276b670", "tag": "2.3.0"},
+  "tinyusb": {"url": "https://github.com/hathach/tinyusb.git", "commit": "86ad6e56c1700e85f1c5678607a762cfe3aa2f47", "path": "pico-sdk/lib/tinyusb"},
+  "Pico-PIO-USB": {"url": "https://github.com/sekigon-gonnoc/Pico-PIO-USB.git", "commit": "5a37a66dc5d3fbe0ef3cdbeda923a757440f984f"}
+}

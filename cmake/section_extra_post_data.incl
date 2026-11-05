@@ -1,0 +1,8 @@
+SECTIONS {
+    .aa_probe_state (NOLOAD) : ALIGN(8) {
+        __aa_probe_state_start = .;
+        KEEP(*(.aa_probe_state))
+        . = ALIGN(8);
+        __aa_probe_state_end = .;
+    } > RAM
+}

@@ -1,0 +1,20 @@
+SECTIONS {
+    .aa_flash_mode1 0x100e0e1c : {
+        __aa_mode1_start = .;
+        KEEP(*(.aa_flash_mode1))
+        __aa_mode1_end = .;
+    } > FLASH
+    .aa_flash_loop 0x100e5400 : {
+        __aa_loop_start = .;
+        KEEP(*(.aa_flash_loop))
+        __aa_loop_end = .;
+    } > FLASH
+    .aa_probe_text 0x100e8000 : {
+        KEEP(*(.aa_probe_text))
+    } > FLASH
+}
+ASSERT(SIZEOF(.aa_flash_mode1) <= 0x340, "AA Mode1 changed beyond reviewed 828B worker")
+/* The worker is 0xb4c bytes; allow 4-byte alignment and six 8-byte
+   Flash-to-SRAM veneers generated for this island. Verify worker size in ELF. */
+ASSERT(SIZEOF(.aa_flash_loop) <= 0xb80, "AA dispatcher island/veneer overflow")
+ASSERT(SIZEOF(.aa_probe_text) <= 0x1800, "AA diagnostic island overflow")
